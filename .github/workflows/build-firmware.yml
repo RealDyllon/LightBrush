@@ -28,12 +28,19 @@ jobs:
           name: lightbrush.sofirn-sp36-t1616.hex
           path: ./ToyKeeper/spaghetti-monster/anduril/anduril.sofirn-sp36-t1616.hex
 
+      - name: Set TAG_NAME environment variable
+        run: |
+          # Set TAG_NAME to the current date and time
+          TAG_NAME=v$(date +'%Y%m%d_%H%M%S')
+          echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
+        shell: bash
+
       - name: Create Tag For Release
         uses: rickstaa/action-create-tag@v1
         id: "tag_create"
         env:
           # Create a tag based on the current date and time
-          TAG_NAME: "v$(date +'%Y%m%d_%H%M%S')"
+          TAG_NAME: ${{ env.TAG_NAME }}
         with:
           tag: ${{ env.TAG_NAME }}
           tag_exists_error: false
