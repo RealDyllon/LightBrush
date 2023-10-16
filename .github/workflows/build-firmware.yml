@@ -28,23 +28,16 @@ jobs:
           name: lightbrush.sofirn-sp36-t1616.hex
           path: ./ToyKeeper/spaghetti-monster/anduril/anduril.sofirn-sp36-t1616.hex
 
-      - name: Create Tag For Release
-        uses: rickstaa/action-create-tag@v1
-        id: "tag_create"
-        with:
-          tag: "latest"
-          tag_exists_error: false
-          message: "Latest release"
-
       - name: Create Tag For Release 2
         uses: rickstaa/action-create-tag@v1
-        id: "tag_create_2"
+        id: "tag_create"
         env:
-          TAG_NAME: ${{ format('{0:yyyyMMdd}-{0:HHmmss}', github.event.head_commit.timestamp) }}
+          # Create a tag based on the current date and time
+          TAG_NAME: "v$(date +'%Y%m%d_%H%M%S')"
         with:
           tag: ${{ env.TAG_NAME }}
           tag_exists_error: false
-          message: "Latest release"
+          message: "Release ${{ env.TAG_NAME }}
 
       - name: Create Release
         uses: actions/create-release@v1
