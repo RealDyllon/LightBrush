@@ -14,7 +14,7 @@ docker run --rm -v /Users/johndoe/Developer/LightBrush:/src lightbrush-builder s
 ```
 4. Flash your flashlight over serialupdi with the generated .hex file. You can use avrdude or any suitable alternative
 ```shell
-avrdude -p attiny1616 -c serialupdi -P /dev/cu.usbserial-1430 -U flash:w:anduril.sofirn-sp36-t1616.hex
+avrdude -p attiny1616 -c serialupdi -P /dev/cu.usbserial-1430 -U flash:w:lightbrush.sofirn-sp36-t1616.hex
 # Replace the params to suit your needs.
 ```
 
