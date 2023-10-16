@@ -54,7 +54,7 @@ jobs:
           TAG_NAME: ${{ env.TAG_NAME }}
         with:
           tag_name: ${{ env.TAG_NAME }}
-          release_name: ${{ github.sha }}
+          release_name: ${{ env.TAG_NAME }}
           draft: false
           prerelease: false
           body: |
