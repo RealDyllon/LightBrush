@@ -15,20 +15,21 @@ jobs:
 
       - name: Pull Image from GitHub Container Registry
         run: |
-          docker pull ghcr.io/RealDyllon/anduril-builder:latest
+          docker pull ghcr.io/realdyllon/lightbrush/lightbrush-builder:latest
 
       - name: Build Firmware
         run: |
-          docker run --rm -v .:/src anduril-builder sp36-t1616
+          docker run --rm -v .:/src lightbrush-builder sp36-t1616
 
       - name: Upload Firmware
         uses: actions/upload-artifact@v2
         with:
-          name: anduril.sofirn-sp36-t1616.hex
+          name: lightbrush.sofirn-sp36-t1616.hex
           path: ./ToyKeeper/spaghetti-monster/anduril/anduril.sofirn-sp36-t1616.hex
 
       - name: Create Release
         uses: actions/create-release@v1
+        id: create_release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -39,3 +40,13 @@ jobs:
           body: |
             This is an automatically generated release.
             It contains the latest version of Anduril for Sofirn SP36 with T1616 (and similar models, such as SP31 Pro).
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./ToyKeeper/spaghetti-monster/anduril/anduril.sofirn-sp36-t1616.hex
+          asset_name: lightbrush.sofirn-sp36-t1616.hex
+          asset_content_type: application/octet-stream
