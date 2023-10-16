@@ -37,7 +37,7 @@ jobs:
         with:
           tag: ${{ env.TAG_NAME }}
           tag_exists_error: false
-          message: "Release ${{ env.TAG_NAME }}
+          message: "Release ${{ env.TAG_NAME }}"
 
       - name: Create Release
         uses: actions/create-release@v1
