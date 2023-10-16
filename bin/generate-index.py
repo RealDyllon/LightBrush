@@ -14,7 +14,7 @@ outfile = 'INDEX'
 def main(args):
     results = dict()
     descriptions = []
-    for root, dirs, files in os.walk('.'):
+    for root, dirs, files in os.walk(''):
         #print 'Scanning "%s"...' % (root)
         # ignore hidden dirs like '.bzr' and '.git'
         dirs.sort()
