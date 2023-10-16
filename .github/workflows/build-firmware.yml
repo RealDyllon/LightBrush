@@ -26,7 +26,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: lightbrush.sofirn-sp36-t1616.hex
-          path: ./firmware/spaghetti-monster/anduril/anduril.sofirn-sp36-t1616.hex
+          path: ./firmware/fsm/anduril/anduril.sofirn-sp36-t1616.hex
 
       - name: Set TAG_NAME environment variable
         run: |
@@ -67,6 +67,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./firmware/spaghetti-monster/anduril/anduril.sofirn-sp36-t1616.hex
+          asset_path: ./firmware/fsm/anduril/anduril.sofirn-sp36-t1616.hex
           asset_name: lightbrush.sofirn-sp36-t1616.hex
           asset_content_type: application/octet-stream
