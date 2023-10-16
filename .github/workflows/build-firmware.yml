@@ -28,7 +28,7 @@ jobs:
           name: lightbrush.sofirn-sp36-t1616.hex
           path: ./ToyKeeper/spaghetti-monster/anduril/anduril.sofirn-sp36-t1616.hex
 
-      - name: Create Tag For Release 2
+      - name: Create Tag For Release
         uses: rickstaa/action-create-tag@v1
         id: "tag_create"
         env:
@@ -45,7 +45,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.sha }}
+          tag_name: ${{ steps.tag_create.outputs.tag }}
           release_name: ${{ github.sha }}
           draft: false
           prerelease: false
