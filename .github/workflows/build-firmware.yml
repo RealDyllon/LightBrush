@@ -39,8 +39,10 @@ jobs:
       - name: Create Tag For Release 2
         uses: rickstaa/action-create-tag@v1
         id: "tag_create_2"
+        env:
+          TAG_NAME: ${{ format('{0:yyyyMMdd}-{0:HHmmss}', github.event.head_commit.timestamp) }}
         with:
-          tag: ${{ format('{0:yyyyMMdd}-{0:HHmmss}', github.event.head_commit.timestamp) }}
+          tag: ${{ env.TAG_NAME }}
           tag_exists_error: false
           message: "Latest release"
 
