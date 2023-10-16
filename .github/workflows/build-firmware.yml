@@ -51,8 +51,9 @@ jobs:
         id: create_release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG_NAME: ${{ env.TAG_NAME }}
         with:
-          tag_name: ${{ steps.tag_create.outputs.tag }}
+          tag_name: ${{ env.TAG_NAME }}
           release_name: ${{ github.sha }}
           draft: false
           prerelease: false
