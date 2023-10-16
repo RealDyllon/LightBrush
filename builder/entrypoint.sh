@@ -18,7 +18,7 @@ check_buildall(){
 	fi
 }
 
-for dirpath in spaghetti-monster/anduril spaghetti-monster/anduril2 spaghetti-monster/anduril2 ToyKeeper/spaghetti-monster/anduril firmware/spaghetti-monster/anduril #catch renamed anduril dir as well as default dir structure
+for dirpath in spaghetti-monster/anduril spaghetti-monster/anduril2 spaghetti-monster/anduril2 ToyKeeper/spaghetti-monster/anduril firmware/spaghetti-monster/anduril firmware/fsm/anduril #catch renamed anduril dir as well as default dir structure
 do
 	if [[ -d "/src/${dirpath}" ]]
 	then
