@@ -19,7 +19,7 @@ jobs:
 
       - name: Build Firmware
         run: |
-          docker run --rm -v .:/src lightbrush-builder sp36-t1616
+          docker run --rm -v .:/src ghcr.io/realdyllon/lightbrush/lightbrush-builder sp36-t1616
 
       - name: Upload Firmware
         uses: actions/upload-artifact@v2
