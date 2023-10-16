@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'builder/**'
+      - '.github/workflows/build-docker-image.yml'
   workflow_dispatch:
 
 jobs:
@@ -26,7 +27,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./builder
-          file: ./Dockerfile
+          file: ./builder/Dockerfile
           push: true
           tags: | 
             ghcr.io/realdyllon/lightbrush/lightbrush-builder:${{ github.sha }}
