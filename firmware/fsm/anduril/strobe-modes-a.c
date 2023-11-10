@@ -67,10 +67,6 @@ uint8_t strobe_state_a(Event event, uint16_t arg) {
     else if (event == EV_click1_hold) {
         if (0) {}  // placeholder
 
-
-        // lightning has no adjustments
-        //else if (st == lightning_storm_e) {}
-
         // TODO:
         // biking mode brighter
         #ifdef USE_BIKE_FLASHER_MODE
