@@ -37,9 +37,9 @@ cd builder
 docker build -t lightbrush-builder .
 ```
 
-If you really want, you can skip docker entirely and use make to build the firmware. Instructions can be found at 
-[Toykeeper's GitHub repo README](https://github.com/ToyKeeper/anduril#compiling). A linux machine is strongly 
-recommended for this. Non-docker builds are not covered in this README.
+Alternatively, if you really want you can skip docker entirely and use make to build the firmware. Instructions can be 
+found at [Toykeeper's GitHub repo README](https://github.com/ToyKeeper/anduril#compiling). A linux machine is strongly 
+recommended for this.
 
 ### Build the firmware for your flashlight model with the builder image  
 
@@ -55,6 +55,8 @@ docker run --rm -v /Users/johndoe/Developer/LightBrush:/src lightbrush-builder s
 
 ### Ping your flashlight
 
+Connect your flashing kit to your flashlight and computer.
+
 Replace serial port and microcontroller in the below command as needed.
 
 ```shell
@@ -65,7 +67,6 @@ If you get a response like this, you're good to go:
 `avrdude: AVR device initialized and ready to accept instructions`
 
 If you get a connection error, ensure that your flashing kit is working as intended.
-
 
 ### Backup your flashlight's factory firmware
 
